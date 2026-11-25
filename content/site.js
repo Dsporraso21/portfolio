@@ -19,10 +19,6 @@ window.SITE = {
     }
   },
   hero: {
-    hello: {
-      en: "Hi, I'm Santiago",
-      es: "Hola, soy Santiago"
-    },
     title: {
       en: "I design digital products, from *research* to *interface*.",
       es: "Diseño productos digitales, de la *investigación* a la *interfaz*."
@@ -30,17 +26,7 @@ window.SITE = {
     lead: {
       en: "Product Design student at UOC. I interview people, test prototypes and build what I design, then write down what didn't work.",
       es: "Estudiante de diseño de producto en la UOC. Entrevisto a usuarios, pruebo prototipos y construyo lo que diseño, y luego apunto lo que no funcionó."
-    },
-    tags: [ {
-      en: "UX research",
-      es: "Investigación UX"
-    }, {
-      en: "Interaction design",
-      es: "Diseño de interacción"
-    }, {
-      en: "HTML & CSS",
-      es: "HTML y CSS"
-    } ]
+    }
   },
   about: {
     title: {
@@ -192,6 +178,10 @@ window.SITE = {
       es: "Si buscas a alguien en prácticas o un diseñador junior, me gustaría enseñarte cómo trabajo."
     },
     email: "santiporras102@gmail.com",
+    cv: {
+      en: "assets/cv/santiago-porras-cv-en.pdf",
+      es: "assets/cv/santiago-porras-cv-es.pdf"
+    },
     links: [ {
       label: "LinkedIn",
       url: "https://www.linkedin.com/in/davidsantiagoporrasortega/"
