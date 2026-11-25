@@ -1162,50 +1162,150 @@ window.PROJECTS = [ {
     }
   } ],
   blocks: [ {
-    type: "split",
+    type: "logo",
     title: {
       en: "A logo built like code",
       es: "Un logo construido como código"
     },
     body: {
-      en: [ "The logotype sits on an 8 × 8 module grid with 45° diagonals, as strict as any digital design system. The manual sets a clear space around it and a minimum size: 20 mm in print and 72 px on screen.", "Two typefaces carry the two halves of the name. Anonymous Pro, technical and monospaced, for the logotype. Roboto Mono for everything else." ],
-      es: [ "El logotipo se asienta sobre una retícula de 8 × 8 módulos con diagonales a 45°, tan estricta como cualquier sistema de diseño digital. El manual fija un área de respeto y un tamaño mínimo: 20 mm en impresión y 72 px en pantalla.", "Dos tipografías llevan las dos mitades del nombre. Anonymous Pro, técnica y monoespaciada, para el logotipo. Roboto Mono para todo lo demás." ]
+      en: [ "The isotype is three pixels in a 2 × 3 module area, set on an 8 × 8 grid with 45° diagonals, as strict as any digital design system. The wordmark is Anonymous Pro Bold, technical and monospaced.", "The rule for colour is simple: the logo always appears in a single tone, ideally black or white. Try it on each brand colour." ],
+      es: [ "El isotipo son tres píxeles en un área de 2 × 3 módulos, sobre una retícula de 8 × 8 con diagonales a 45°, tan estricta como cualquier sistema de diseño digital. El wordmark es Anonymous Pro Bold, técnica y monoespaciada.", "La norma de color es simple: el logo siempre va en un solo tono, idealmente blanco o negro. Pruébalo sobre cada color de la marca." ]
     },
-    image: {
-      src: "assets/projects/artecodigo/03-logo-construction.webp",
-      alt: {
-        en: "Brand manual page with the logo construction grid, clear space and minimum size",
-        es: "Página del manual con la retícula de construcción del logo, el área de respeto y el tamaño mínimo"
-      },
-      caption: {
-        en: "From the manual: construction grid and clear space.",
-        es: "Del manual: retícula de construcción y área de respeto."
-      }
+    cells: [ [ 0, 0 ], [ 1, 1 ], [ 0, 2 ] ],
+    cols: 2,
+    rows: 3,
+    wordmark: "ArteCódigo",
+    font: "'Anonymous Pro'",
+    backgrounds: [ {
+      name: "Black",
+      hex: "#000000"
+    }, {
+      name: "White",
+      hex: "#ffffff"
+    }, {
+      name: "Red",
+      hex: "#ff0040"
+    }, {
+      name: "Blue",
+      hex: "#0040ff"
+    }, {
+      name: "Yellow",
+      hex: "#ffe100"
+    } ],
+    caption: {
+      en: "Rebuilt live from the manual's rules. Minimum size: 20 mm in print, 72 px on screen.",
+      es: "Reconstruido en vivo con las normas del manual. Tamaño mínimo: 20 mm en impresión y 72 px en pantalla."
     }
   }, {
-    type: "gallery",
-    columns: 2,
-    images: [ {
-      src: "assets/projects/artecodigo/04-colour.webp",
-      alt: {
-        en: "Colour palette with HEX, RGB, CMYK and Pantone values and the logo in each colour",
-        es: "Paleta de color con valores HEX, RGB, CMYK y Pantone y el logo en cada color"
+    type: "palette",
+    title: {
+      en: "Five colours, one job each",
+      es: "Cinco colores, una función cada uno"
+    },
+    colors: [ {
+      name: "Black",
+      hex: "#000000",
+      role: {
+        en: "The logo, by default",
+        es: "El logo, por defecto"
       },
-      caption: {
-        en: "Five colours, each with its values and its monochrome version.",
-        es: "Cinco colores, cada uno con sus valores y su versión monocromática."
-      }
+      rgb: "0 0 0",
+      cmyk: "100 61 32 96",
+      pms: "PMS Black 6 C"
     }, {
-      src: "assets/projects/artecodigo/05-typography.webp",
-      alt: {
-        en: "Typography page showing Anonymous Pro and Roboto Mono with the type hierarchy",
-        es: "Página de tipografía con Anonymous Pro y Roboto Mono y la jerarquía tipográfica"
+      name: "White",
+      hex: "#ffffff",
+      role: {
+        en: "Logo in negative",
+        es: "Logo en negativo"
       },
-      caption: {
-        en: "Type hierarchy, from logotype to body text.",
-        es: "Jerarquía tipográfica, del logotipo al texto de lectura."
-      }
-    } ]
+      rgb: "255 255 255",
+      cmyk: "0 0 0 0",
+      pms: "PMS Bright White"
+    }, {
+      name: "Red",
+      hex: "#ff0040",
+      role: {
+        en: "Accent",
+        es: "Acento"
+      },
+      rgb: "255 0 64",
+      cmyk: "0 89 69 0",
+      pms: "PMS 1788 C"
+    }, {
+      name: "Blue",
+      hex: "#0040ff",
+      role: {
+        en: "Accent",
+        es: "Acento"
+      },
+      rgb: "0 64 255",
+      cmyk: "84 62 0 0",
+      pms: "PMS 2935 C"
+    }, {
+      name: "Yellow",
+      hex: "#ffe100",
+      role: {
+        en: "Accent",
+        es: "Acento"
+      },
+      rgb: "255 225 0",
+      cmyk: "0 2 99 0",
+      pms: "PMS 108 C"
+    } ],
+    caption: {
+      en: "Click a colour to copy its HEX.",
+      es: "Haz clic en un color para copiar su HEX."
+    }
+  }, {
+    type: "type",
+    title: {
+      en: "Two monospaced voices",
+      es: "Dos voces monoespaciadas"
+    },
+    sample: {
+      en: "Where art meets code.",
+      es: "Donde el arte se encuentra con el código."
+    },
+    fonts: [ {
+      name: "Anonymous Pro",
+      family: "'Anonymous Pro'",
+      role: {
+        en: "logotype",
+        es: "logotipo"
+      },
+      weights: [ {
+        name: "Regular",
+        value: 400
+      }, {
+        name: "Bold",
+        value: 700
+      } ]
+    }, {
+      name: "Roboto Mono",
+      family: "'Roboto Mono'",
+      role: {
+        en: "everything else",
+        es: "todo lo demás"
+      },
+      weights: [ {
+        name: "Light",
+        value: 300
+      }, {
+        name: "Regular",
+        value: 400
+      }, {
+        name: "Medium",
+        value: 500
+      }, {
+        name: "Bold",
+        value: 700
+      } ]
+    } ],
+    caption: {
+      en: "The sample text is editable. Type anything.",
+      es: "El texto de muestra se puede editar. Escribe lo que quieras."
+    }
   }, {
     type: "split",
     title: {
@@ -1261,6 +1361,17 @@ window.PROJECTS = [ {
         es: "Papelería y redes."
       }
     } ]
+  }, {
+    type: "image",
+    src: "assets/projects/artecodigo/03-logo-construction.webp",
+    alt: {
+      en: "Brand manual page with the logo construction grid, clear space and minimum size",
+      es: "Página del manual con la retícula de construcción del logo, el área de respeto y el tamaño mínimo"
+    },
+    caption: {
+      en: "The original manual page: construction grid and clear space.",
+      es: "La página original del manual: retícula de construcción y área de respeto."
+    }
   } ]
 }, {
   id: "nexus",
@@ -1281,14 +1392,6 @@ window.PROJECTS = [ {
   object: {
     kind: "browser",
     image: "assets/projects/nexus/01-home.webp"
-  },
-  cover: {
-    src: "assets/projects/nexus/01-home.webp",
-    alt: {
-      en: "Nexus home page with the headline We Build Digital Experiences That Matter",
-      es: "Página de inicio de Nexus con el titular We Build Digital Experiences That Matter"
-    },
-    frame: "browser"
   },
   meta: [ {
     label: {
@@ -1369,7 +1472,73 @@ window.PROJECTS = [ {
     }
   } ],
   blocks: [ {
-    type: "split",
+    type: "device",
+    title: {
+      en: "Browse the live build",
+      es: "Recorre la web en vivo"
+    },
+    body: {
+      en: [ "All four pages as they run online today. Switch pages and screen sizes, and scroll inside the frame." ],
+      es: [ "Las cuatro páginas tal como funcionan hoy en internet. Cambia de página y de tamaño de pantalla, y desplázate dentro del marco." ]
+    },
+    url: "https://dsporraso21.github.io/practica-html-css/index.html",
+    alt: {
+      en: "Full-page capture of the Nexus site",
+      es: "Captura completa de la web de Nexus"
+    },
+    sizes: [ {
+      key: "desktop",
+      label: {
+        en: "Desktop",
+        es: "Escritorio"
+      }
+    }, {
+      key: "tablet",
+      label: "Tablet"
+    } ],
+    pages: [ {
+      label: {
+        en: "Home",
+        es: "Inicio"
+      },
+      path: "index.html",
+      shots: {
+        desktop: "assets/projects/nexus/live/desktop-index.webp",
+        tablet: "assets/projects/nexus/live/tablet-index.webp"
+      }
+    }, {
+      label: {
+        en: "Services",
+        es: "Servicios"
+      },
+      path: "services.html",
+      shots: {
+        desktop: "assets/projects/nexus/live/desktop-services.webp",
+        tablet: "assets/projects/nexus/live/tablet-services.webp"
+      }
+    }, {
+      label: {
+        en: "About",
+        es: "Nosotros"
+      },
+      path: "about.html",
+      shots: {
+        desktop: "assets/projects/nexus/live/desktop-about.webp",
+        tablet: "assets/projects/nexus/live/tablet-about.webp"
+      }
+    }, {
+      label: {
+        en: "Contact",
+        es: "Contacto"
+      },
+      path: "contact.html",
+      shots: {
+        desktop: "assets/projects/nexus/live/desktop-contact.webp",
+        tablet: "assets/projects/nexus/live/tablet-contact.webp"
+      }
+    } ]
+  }, {
+    type: "text",
     title: {
       en: "Accessible past what you can see",
       es: "Accesible más allá de lo que se ve"
@@ -1377,19 +1546,55 @@ window.PROJECTS = [ {
     body: {
       en: [ "The first element in the page is a skip link, hidden until it receives keyboard focus. Every form field has its own `label` and a visible focus state.", "Required fields are marked with `required` and `aria-required`, so a screen reader announces them. A coloured asterisk alone would not." ],
       es: [ "El primer elemento de la página es un enlace de salto, oculto hasta que recibe el foco del teclado. Cada campo del formulario tiene su `label` y un estado de foco visible.", "Los campos obligatorios llevan `required` y `aria-required`, para que un lector de pantalla los anuncie. Un asterisco de color por sí solo no lo haría." ]
-    },
-    image: {
-      src: "assets/projects/nexus/02-contact.webp",
-      frame: "browser",
-      alt: {
-        en: "Nexus contact page with a form for name, email, phone and company",
-        es: "Página de contacto de Nexus con formulario de nombre, email, teléfono y empresa"
-      },
-      caption: {
-        en: "The contact form, grouped with `fieldset` and `legend`.",
-        es: "El formulario de contacto, agrupado con `fieldset` y `legend`."
-      }
     }
+  }, {
+    type: "code",
+    title: {
+      en: "The skeleton every page shares",
+      es: "El esqueleto que comparten todas las páginas"
+    },
+    body: {
+      en: [ "None of this changes how the site looks. It changes who can use it. Hover a note to find its line." ],
+      es: [ "Nada de esto cambia cómo se ve la web. Cambia quién puede usarla. Pasa por encima de una nota para ver su línea." ]
+    },
+    code: "<body>\n  <a class=\"skip-link\" href=\"#main-content\">…</a>\n  <header class=\"header\">\n    <nav aria-label=\"Main navigation\">\n      <a href=\"index.html\" class=\"active\" aria-current=\"page\">Portfolio</a>\n    </nav>\n  </header>\n  <main id=\"main-content\">\n    <section aria-labelledby=\"…\">\n      <h2 id=\"…\">…</h2>\n    </section>\n  </main>\n  <footer class=\"footer\">\n    <address>…</address>\n    <nav aria-label=\"Social media links\">…</nav>\n  </footer>\n</body>",
+    notes: [ {
+      line: 2,
+      text: {
+        en: "Skip link: the first thing a keyboard reaches, hidden until it has focus.",
+        es: "Enlace de salto: lo primero que alcanza el teclado, oculto hasta que tiene el foco."
+      }
+    }, {
+      line: 4,
+      text: {
+        en: "The menu is named, so a screen reader can tell it apart from the footer's.",
+        es: "El menú tiene nombre, así que un lector de pantalla lo distingue del del pie."
+      }
+    }, {
+      line: 5,
+      text: {
+        en: "The current page is announced, not just underlined.",
+        es: "La página actual se anuncia, no solo se subraya."
+      }
+    }, {
+      line: 8,
+      text: {
+        en: "Where the skip link lands.",
+        es: "Donde aterriza el enlace de salto."
+      }
+    }, {
+      line: 9,
+      text: {
+        en: "Each section takes its name from its own heading.",
+        es: "Cada sección toma su nombre de su propio encabezado."
+      }
+    }, {
+      line: 14,
+      text: {
+        en: "Contact details marked as contact details.",
+        es: "Los datos de contacto marcados como datos de contacto."
+      }
+    } ]
   }, {
     type: "split",
     title: {
@@ -1397,8 +1602,8 @@ window.PROJECTS = [ {
       es: "Marcado que significa algo"
     },
     body: {
-      en: [ "The pricing table is a real `table` with a `caption` and `th scope=\"col\"` headers. It is not a grid of `div`s made to look like one.", "Each `section` is tied to its heading with `aria-labelledby`, the current page is marked with `aria-current`, and every page declares its language and its own title. None of this changes how the site looks. It changes who can use it." ],
-      es: [ "La tabla de precios es una `table` de verdad, con `caption` y cabeceras `th scope=\"col\"`. No es una cuadrícula de `div` disfrazada.", "Cada `section` va ligada a su encabezado con `aria-labelledby`, la página actual se marca con `aria-current` y cada página declara su idioma y su propio título. Nada de esto cambia cómo se ve la web. Cambia quién puede usarla." ]
+      en: [ "The pricing table is a real `table` with a `caption` and `th scope=\"col\"` headers. It is not a grid of `div`s made to look like one.", "Every page declares its language and its own title and description." ],
+      es: [ "La tabla de precios es una `table` de verdad, con `caption` y cabeceras `th scope=\"col\"`. No es una cuadrícula de `div` disfrazada.", "Cada página declara su idioma y su propio título y descripción." ]
     },
     image: {
       src: "assets/projects/nexus/03-pricing.webp",
