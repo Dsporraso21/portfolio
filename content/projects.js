@@ -14,9 +14,9 @@ window.PROJECTS = [ {
     bg: "#0b17ff",
     fg: "#ffffff"
   },
-  object: {
-    kind: "phone",
-    image: "assets/projects/atlas/object-phone.webp"
+  thumb: {
+    video: "assets/projects/atlas/flow.mp4",
+    image: "assets/projects/atlas/flow-poster.webp"
   },
   cover: {
     video: "assets/projects/atlas/flow.mp4",
@@ -259,9 +259,8 @@ window.PROJECTS = [ {
     bg: "#c4956a",
     fg: "#231c15"
   },
-  object: {
-    kind: "print",
-    image: "assets/projects/lufe/object-dossier.webp"
+  thumb: {
+    image: "assets/projects/lufe/thumb.webp"
   },
   meta: [ {
     label: {
@@ -873,9 +872,8 @@ window.PROJECTS = [ {
     bg: "#8e1a24",
     fg: "#f4f1ea"
   },
-  object: {
-    kind: "print",
-    image: "assets/projects/sal/object-cover.webp"
+  thumb: {
+    image: "assets/projects/sal/thumb.webp"
   },
   cover: {
     src: "assets/projects/sal/01-covers-n01.webp",
@@ -1084,9 +1082,8 @@ window.PROJECTS = [ {
     bg: "#0a0a0a",
     fg: "#ffffff"
   },
-  object: {
-    kind: "card",
-    image: "assets/projects/artecodigo/object-isotype.webp"
+  thumb: {
+    image: "assets/projects/artecodigo/thumb.webp"
   },
   cover: {
     src: "assets/projects/artecodigo/01-applications.webp",
@@ -1389,9 +1386,8 @@ window.PROJECTS = [ {
     bg: "#c8ff4d",
     fg: "#0a0a0a"
   },
-  object: {
-    kind: "browser",
-    image: "assets/projects/nexus/01-home.webp"
+  thumb: {
+    image: "assets/projects/nexus/thumb.webp"
   },
   meta: [ {
     label: {
@@ -1495,6 +1491,12 @@ window.PROJECTS = [ {
     }, {
       key: "tablet",
       label: "Tablet"
+    }, {
+      key: "mobile",
+      label: {
+        en: "Mobile",
+        es: "Móvil"
+      }
     } ],
     pages: [ {
       label: {
@@ -1504,7 +1506,8 @@ window.PROJECTS = [ {
       path: "index.html",
       shots: {
         desktop: "assets/projects/nexus/live/desktop-index.webp",
-        tablet: "assets/projects/nexus/live/tablet-index.webp"
+        tablet: "assets/projects/nexus/live/tablet-index.webp",
+        mobile: "assets/projects/nexus/live/mobile-index.webp"
       }
     }, {
       label: {
@@ -1514,7 +1517,8 @@ window.PROJECTS = [ {
       path: "services.html",
       shots: {
         desktop: "assets/projects/nexus/live/desktop-services.webp",
-        tablet: "assets/projects/nexus/live/tablet-services.webp"
+        tablet: "assets/projects/nexus/live/tablet-services.webp",
+        mobile: "assets/projects/nexus/live/mobile-services.webp"
       }
     }, {
       label: {
@@ -1524,7 +1528,8 @@ window.PROJECTS = [ {
       path: "about.html",
       shots: {
         desktop: "assets/projects/nexus/live/desktop-about.webp",
-        tablet: "assets/projects/nexus/live/tablet-about.webp"
+        tablet: "assets/projects/nexus/live/tablet-about.webp",
+        mobile: "assets/projects/nexus/live/mobile-about.webp"
       }
     }, {
       label: {
@@ -1534,7 +1539,8 @@ window.PROJECTS = [ {
       path: "contact.html",
       shots: {
         desktop: "assets/projects/nexus/live/desktop-contact.webp",
-        tablet: "assets/projects/nexus/live/tablet-contact.webp"
+        tablet: "assets/projects/nexus/live/tablet-contact.webp",
+        mobile: "assets/projects/nexus/live/mobile-contact.webp"
       }
     } ]
   }, {

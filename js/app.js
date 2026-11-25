@@ -228,10 +228,9 @@
     return '<a class="skip" href="#main" data-skip>' + esc(ui("skip")) + '</a>' + '<header class="top side"><a class="brand" href="#home">' + esc(SITE.name || "") + '<span>' + plain(SITE.role) + '</span></a>' + '<nav aria-label="' + esc(lang === "es" ? "Principal" : "Main") + '">' + '<button type="button" data-lang aria-label="' + esc(ui("langLabel")) + '">' + esc(ui("langBtn")) + '</button>' + '<a href="#information" data-info>' + esc(ui("info")) + '</a>' + '</nav></header>';
   }
   function tile(p) {
-    var o = p.object || {};
-    var src = o.image || p.cover && p.cover.src || "";
-    var shot = o.kind === "browser" || !o.image && src;
-    return '<span class="work__tile">' + (src ? '<img src="' + esc(src) + '" alt=""' + (shot ? ' class="is-shot"' : '') + '>' : '') + '</span>';
+    var th = p.thumb || {}, img = th.image || p.cover && p.cover.src || "";
+    var media = th.video ? '<video src="' + esc(th.video) + '"' + (img ? ' poster="' + esc(img) + '"' : '') + ' muted loop playsinline preload="metadata" aria-hidden="true"></video>' : img ? '<img src="' + esc(img) + '" alt="" loading="lazy">' : '';
+    return '<span class="work__tile"' + (th.video ? ' data-tile-vid' : '') + '>' + media + '</span>';
   }
   function home() {
     var h = SITE.hero || {}, st = SITE.status || {};
@@ -240,12 +239,12 @@
       out += '<section class="lead side"><p class="intro">' + inl(h.title) + (st.available && t(st.text) ? ' <span>' + inl(st.text) + '.</span>' : '') + '</p></section>';
     }
     out += '<section class="grid side" id="work" aria-label="' + esc(ui("index")) + '">' + LIVE.map((function(p) {
-      return '<a class="work" href="#' + esc(p.id) + '">' + tile(p) + '<span class="work__cap"><b>' + plain(p.title) + '</b><span>' + plain(p.kind) + '</span></span></a>';
+      return '<a class="work" href="#' + esc(p.id) + '">' + tile(p) + '<span class="work__cap"><b>' + plain(p.title) + '</b><span>' + plain(p.kind) + '</span>' + (t(p.year) ? '<i>' + plain(p.year) + '</i>' : '') + '</span></a>';
     })).join("") + '</section></main>' + footer();
     return out;
   }
   function footer() {
-    return '<footer class="foot side"><span>© ' + (new Date).getFullYear() + ' ' + esc(SITE.name || "") + '</span>' + '<a href="#information" data-info>' + esc(ui("contact")) + '</a></footer>';
+    return '<footer class="foot side"><span>© ' + (new Date).getFullYear() + ' ' + esc(SITE.name || "") + '</span></footer>';
   }
   function sheetHTML() {
     var ab = SITE.about || {}, ct = SITE.contact || {}, ph = SITE.photo || {}, st = SITE.status || {}, tb = SITE.toolbox || {}, tr = SITE.training || {};
@@ -528,7 +527,13 @@
     io = "IntersectionObserver" in window ? new IntersectionObserver((function(entries) {
       entries.forEach((function(en) {
         var el = en.target;
-        if (el.matches("[data-vid]")) {
+        if (el.matches("[data-tile-vid]")) {
+          var tv = el.querySelector("video");
+          if (en.isIntersecting && !calm()) {
+            var tp = tv.play();
+            if (tp && tp.catch) tp.catch((function() {}));
+          } else tv.pause();
+        } else if (el.matches("[data-vid]")) {
           var v = el.querySelector("video");
           if (en.isIntersecting && !el.classList.contains("is-paused") && !calm()) {
             var pr = v.play();
@@ -545,6 +550,9 @@
     }), {
       threshold: .25
     }) : null;
+    Array.prototype.forEach.call(app.querySelectorAll("[data-tile-vid]"), (function(el) {
+      if (io) io.observe(el);
+    }));
     Array.prototype.forEach.call(app.querySelectorAll("[data-vid]"), (function(el) {
       if (calm()) el.classList.add("is-paused");
       syncVid(el);
