@@ -91,6 +91,50 @@
       en: "Finding",
       es: "Hallazgo"
     },
+    prev: {
+      en: "Previous",
+      es: "Anterior"
+    },
+    nextPage: {
+      en: "Next",
+      es: "Siguiente"
+    },
+    cover: {
+      en: "Cover",
+      es: "Portada"
+    },
+    backCover: {
+      en: "Back cover",
+      es: "Contraportada"
+    },
+    pages: {
+      en: "Pages",
+      es: "Páginas"
+    },
+    pause: {
+      en: "Pause",
+      es: "Pausar"
+    },
+    play: {
+      en: "Play",
+      es: "Reproducir"
+    },
+    low: {
+      en: "Low",
+      es: "Bajo"
+    },
+    medium: {
+      en: "Medium",
+      es: "Medio"
+    },
+    high: {
+      en: "High",
+      es: "Alto"
+    },
+    chosenCap: {
+      en: "Chosen",
+      es: "Elegida"
+    },
     draft: {
       en: "Draft. Only visible with this direct address until draft is set to false.",
       es: "Borrador. Solo se ve con esta dirección directa hasta que pongas draft en false."
@@ -244,14 +288,72 @@
       return '<h2>' + inl(b.title) + '</h2><ul>' + (b.items || []).map((function(it) {
         return '<li>' + inl(it) + '</li>';
       })).join("") + '</ul>';
+    },
+    video: function(b) {
+      return videoHTML(b) + (t(b.caption) ? '<p class="cap">' + inl(b.caption) + '</p>' : '');
+    },
+    flipbook: function(b) {
+      var pages = (b.pages || []).filter((function(pg) {
+        return pg && pg.src;
+      }));
+      var sheets = [];
+      for (var i = 0; i < pages.length; i += 2) sheets.push([ pages[i], pages[i + 1] ]);
+      var n = sheets.length;
+      return (t(b.title) ? '<h2>' + inl(b.title) + '</h2>' : '') + '<div class="book" data-book data-sheets="' + n + '" data-at="0" role="group" aria-roledescription="flipbook" aria-label="' + plain(b.title) + '">' + '<div class="book__stage"><div class="book__spine">' + sheets.map((function(sh, i) {
+        return '<div class="sheet3d" style="--i:' + i + ';--n:' + n + '">' + '<div class="face face--front"><img src="' + esc(sh[0].src) + '" alt="' + plain(sh[0].alt) + '" loading="lazy" draggable="false"></div>' + '<div class="face face--back">' + (sh[1] ? '<img src="' + esc(sh[1].src) + '" alt="' + plain(sh[1].alt) + '" loading="lazy" draggable="false">' : '') + '</div></div>';
+      })).join("") + '</div>' + '<button type="button" class="book__hit book__hit--prev" data-flip="-1" aria-label="' + esc(ui("prev")) + '"></button>' + '<button type="button" class="book__hit book__hit--next" data-flip="1" aria-label="' + esc(ui("nextPage")) + '"></button></div>' + '<div class="book__bar"><button type="button" data-flip="-1">← ' + esc(ui("prev")) + '</button><span data-book-count></span><button type="button" data-flip="1">' + esc(ui("nextPage")) + ' →</button></div></div>' + (t(b.caption) ? '<p class="cap">' + inl(b.caption) + '</p>' : '');
+    },
+    map: function(b) {
+      var ax = b.axes || {};
+      return '<h2>' + inl(b.title) + '</h2><div class="b__copy">' + paras(b.body) + '</div>' + '<div class="map" data-map><div class="map__plane">' + '<span class="map__ax map__ax--top">' + inl(ax.top) + '</span><span class="map__ax map__ax--bottom">' + inl(ax.bottom) + '</span>' + '<span class="map__ax map__ax--left">' + inl(ax.left) + '</span><span class="map__ax map__ax--right">' + inl(ax.right) + '</span>' + (b.points || []).map((function(pt, i) {
+        return '<button type="button" class="pt' + (pt.highlight ? ' pt--hl' : '') + (pt.x > 70 ? ' pt--r' : pt.x < 20 ? ' pt--l' : '') + '" style="left:' + (+pt.x || 0) + '%;top:' + (+pt.y || 0) + '%;--d:' + i * 70 + 'ms" data-pt>' + '<i aria-hidden="true"></i><b>' + plain(pt.name) + '</b><span>' + inl(pt.note) + '</span></button>';
+      })).join("") + '</div></div>';
+    },
+    persona: function(b) {
+      return '<h2>' + inl(b.title) + '</h2><div class="persona">' + (b.image && b.image.src ? '<img src="' + esc(b.image.src) + '" alt="' + plain(b.image.alt) + '" loading="lazy">' : '') + '<div class="persona__txt"><p class="persona__name">' + plain(b.name) + '</p><p class="persona__role">' + inl(b.role) + '</p>' + '<dl>' + (b.sections || []).map((function(sx) {
+        return '<div><dt>' + inl(sx.label) + '</dt><dd>' + inl(sx.text) + '</dd></div>';
+      })).join("") + '</dl></div></div>';
+    },
+    options: function(b) {
+      var obj = b.objectives || [];
+      var L = [ ui("low"), ui("medium"), ui("high") ];
+      return (t(b.title) ? '<h2>' + inl(b.title) + '</h2>' : '') + '<div class="opts">' + (b.items || []).map((function(it) {
+        return '<article class="opt' + (it.chosen ? ' opt--chosen' : '') + '" tabindex="0">' + '<p class="opt__label">' + inl(it.label) + (it.chosen ? ' · <b>' + esc(ui("chosenCap")) + '</b>' : '') + '</p>' + '<h3>' + plain(it.name) + '</h3><p class="opt__text">' + inl(it.text) + '</p>' + '<dl class="opt__specs">' + (it.specs || []).map((function(sp) {
+          return '<div><dt>' + inl(sp[0]) + '</dt><dd>' + inl(sp[1]) + '</dd></div>';
+        })).join("") + '</dl>' + '<ul class="opt__bars">' + obj.map((function(o, i) {
+          var lv = Math.max(1, Math.min(3, (it.levels || [])[i] || 1));
+          return '<li><span>' + inl(o) + '</span><i style="--v:' + lv / 3 + '" title="' + esc(L[lv - 1]) + '"></i><em>' + esc(L[lv - 1]) + '</em></li>';
+        })).join("") + '</ul>' + (t(it.verdict) ? '<p class="opt__verdict">' + inl(it.verdict) + '</p>' : '') + '</article>';
+      })).join("") + '</div>' + (t(b.footnote) ? '<p class="foot-note">' + inl(b.footnote) + '</p>' : '');
+    },
+    cards: function(b) {
+      return (t(b.title) ? '<h2>' + inl(b.title) + '</h2>' : '') + '<div class="cards">' + (b.items || []).map((function(it) {
+        return '<article class="card">' + (it.image && it.image.src ? '<img src="' + esc(it.image.src) + '" alt="' + plain(it.image.alt) + '" loading="lazy">' : '') + '<h3>' + inl(it.title) + '</h3><p>' + inl(it.text) + '</p></article>';
+      })).join("") + '</div>';
+    },
+    timeline: function(b) {
+      var u = Math.max(1, b.units || 10), lab = t(b.unitLabel) || "";
+      var head = '<div class="tl__row tl__head"><span></span><div class="tl__track">' + Array.apply(null, Array(u)).map((function(_, i) {
+        return '<span>' + esc(lab + (i + 1)) + '</span>';
+      })).join("") + '</div></div>';
+      var k = 0;
+      return '<h2>' + inl(b.title) + '</h2><div class="b__copy">' + paras(b.body) + '</div>' + '<div class="tl" style="--u:' + u + '">' + head + (b.groups || []).map((function(g) {
+        return '<p class="tl__group">' + inl(g.name) + '</p>' + (g.rows || []).map((function(r) {
+          var from = Math.max(1, r.from || 1), to = Math.max(from, Math.min(u, r.to || from));
+          return '<div class="tl__row"><span>' + inl(r.label) + '</span><div class="tl__track"><i style="--a:' + (from - 1) + ';--b:' + to + ';--d:' + k++ * 60 + 'ms"></i></div></div>';
+        })).join("");
+      })).join("") + '</div>';
     }
   };
+  function videoHTML(v) {
+    return '<div class="vid" data-vid><video src="' + esc(v.video || v.src) + '"' + (v.poster ? ' poster="' + esc(v.poster) + '"' : '') + ' muted loop playsinline preload="metadata" aria-label="' + plain(v.alt) + '"></video>' + '<button type="button" class="vid__btn" data-vid-toggle aria-label="' + esc(ui("pause")) + '">' + esc(ui("pause")) + '</button></div>';
+  }
   function blockHTML(b) {
     var fn = BLOCKS[b.type];
     if (!fn) return "";
     var tag = b.type === "note" ? "blockquote" : b.type === "finding" ? "aside" : "section";
     var style = b.type === "gallery" ? ' style="--cols:' + Math.min(3, Math.max(1, b.columns || 2)) + '"' : '';
-    return '<' + tag + ' class="b b-' + b.type + '"' + style + '>' + fn(b) + '</' + tag + '>';
+    return '<' + tag + ' class="b b-' + b.type + (b.crop ? ' is-crop' : '') + '"' + style + '>' + fn(b) + '</' + tag + '>';
   }
   function caseView(p) {
     var idx = LIVE.indexOf(p);
@@ -265,7 +367,7 @@
       return '<div><dt>' + inl(m.label) + '</dt><dd>' + inl(m.value) + '</dd></div>';
     })).join("") + (t(p.year) ? '<div><dt>' + (lang === "es" ? "Año" : "Year") + '</dt><dd>' + plain(p.year) + '</dd></div>' : '') + (links.length ? '<div><dt>' + esc(ui("links")) + '</dt><dd class="case__links">' + links.map((function(l) {
       return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + inl(l.label) + ' ↗</a>';
-    })).join("") + '</dd></div>' : '') + '</dl></header>' + (p.cover && p.cover.src ? '<div class="case__cover">' + fig({
+    })).join("") + '</dd></div>' : '') + '</dl></header>' + (p.cover && p.cover.video ? '<div class="case__cover">' + videoHTML(p.cover) + '</div>' : p.cover && p.cover.src ? '<div class="case__cover">' + fig({
       src: p.cover.src,
       alt: p.cover.alt,
       frame: p.cover.frame
@@ -321,6 +423,68 @@
     root.lang = lang;
     document.title = p ? plain(p.title) + " · " + (SITE.name || "") : (SITE.name || "") + " · " + plain(SITE.role);
     if (!p) firstHome = false;
+    enhance();
+  }
+  var io = null;
+  function enhance() {
+    if (io) io.disconnect();
+    io = "IntersectionObserver" in window ? new IntersectionObserver((function(entries) {
+      entries.forEach((function(en) {
+        var el = en.target;
+        if (el.matches("[data-vid]")) {
+          var v = el.querySelector("video");
+          if (en.isIntersecting && !el.classList.contains("is-paused") && !calm()) {
+            var pr = v.play();
+            if (pr && pr.catch) pr.catch((function() {
+              el.classList.add("is-paused");
+              syncVid(el);
+            }));
+          } else if (!en.isIntersecting) v.pause();
+        } else if (en.isIntersecting) {
+          el.classList.add("is-in");
+          io.unobserve(el);
+        }
+      }));
+    }), {
+      threshold: .25
+    }) : null;
+    Array.prototype.forEach.call(app.querySelectorAll("[data-vid]"), (function(el) {
+      if (calm()) el.classList.add("is-paused");
+      syncVid(el);
+      if (io) io.observe(el);
+    }));
+    Array.prototype.forEach.call(app.querySelectorAll(".tl, .opts, [data-map]"), (function(el) {
+      if (io) io.observe(el); else el.classList.add("is-in");
+    }));
+    Array.prototype.forEach.call(app.querySelectorAll("[data-book]"), (function(bk) {
+      setBook(bk, 0);
+    }));
+  }
+  function syncVid(el) {
+    var b = el.querySelector("[data-vid-toggle]"), paused = el.classList.contains("is-paused");
+    b.textContent = paused ? ui("play") : ui("pause");
+    b.setAttribute("aria-label", b.textContent);
+  }
+  function setBook(bk, at) {
+    var n = +bk.getAttribute("data-sheets");
+    at = Math.max(0, Math.min(n, at));
+    bk.setAttribute("data-at", at);
+    Array.prototype.forEach.call(bk.querySelectorAll(".sheet3d"), (function(sh, i) {
+      var turned = i < at;
+      sh.classList.toggle("is-turned", turned);
+      sh.style.zIndex = turned ? i + 1 : n - i;
+    }));
+    bk.classList.toggle("is-closed", at === 0);
+    bk.classList.toggle("is-end", at === n);
+    var c = bk.querySelector("[data-book-count]");
+    if (c) c.textContent = at === 0 ? ui("cover") : at === n ? ui("backCover") : ui("pages") + " " + at * 2 + "–" + (at * 2 + 1);
+    var prevs = bk.querySelectorAll('[data-flip="-1"]'), nexts = bk.querySelectorAll('[data-flip="1"]');
+    Array.prototype.forEach.call(prevs, (function(b) {
+      b.disabled = at === 0;
+    }));
+    Array.prototype.forEach.call(nexts, (function(b) {
+      b.disabled = at === n;
+    }));
   }
   var lastBeforeInfo = "";
   function go(force) {
@@ -402,6 +566,12 @@
     if (e.key === "Escape" && sheet.classList.contains("is-open")) {
       e.preventDefault();
       leaveInfo();
+      return;
+    }
+    var bk = document.activeElement && document.activeElement.closest ? document.activeElement.closest("[data-book]") : null;
+    if (bk && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
+      e.preventDefault();
+      setBook(bk, +bk.getAttribute("data-at") + (e.key === "ArrowRight" ? 1 : -1));
     }
   }));
   var lb = document.createElement("dialog");
@@ -491,6 +661,26 @@
     }
     if (hit = el.closest("[data-zoom]")) {
       openLightbox(hit.getAttribute("data-zoom"), hit.getAttribute("data-cap"));
+      return;
+    }
+    if (hit = el.closest("[data-flip]")) {
+      var bk = hit.closest("[data-book]");
+      setBook(bk, +bk.getAttribute("data-at") + +hit.getAttribute("data-flip"));
+      return;
+    }
+    if (hit = el.closest("[data-vid-toggle]")) {
+      var box = hit.closest("[data-vid]"), v = box.querySelector("video");
+      if (box.classList.toggle("is-paused")) v.pause(); else {
+        var pr = v.play();
+        if (pr && pr.catch) pr.catch((function() {}));
+      }
+      syncVid(box);
+      return;
+    }
+    if (hit = el.closest("[data-pt]")) {
+      Array.prototype.forEach.call(hit.parentNode.querySelectorAll("[data-pt]"), (function(x) {
+        x.classList.toggle("is-on", x === hit && !x.classList.contains("is-on"));
+      }));
       return;
     }
     if ((hit = el.closest("[data-info]")) && window.location.hash === "#information") {

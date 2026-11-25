@@ -19,6 +19,8 @@ window.PROJECTS = [ {
     image: "assets/projects/atlas/object-phone.webp"
   },
   cover: {
+    video: "assets/projects/atlas/flow.mp4",
+    poster: "assets/projects/atlas/flow-poster.webp",
     src: "assets/projects/atlas/01-home.webp",
     alt: {
       en: "Atlas home screen showing the active trip to Paris and recent activities",
@@ -261,13 +263,6 @@ window.PROJECTS = [ {
     kind: "print",
     image: "assets/projects/lufe/object-dossier.webp"
   },
-  cover: {
-    src: "assets/projects/lufe/09-comparison.webp",
-    alt: {
-      en: "Dossier page comparing the three proposals by investment, duration, objectives covered and risk",
-      es: "Página del dossier que compara las tres propuestas por inversión, duración, objetivos cubiertos y riesgo"
-    }
-  },
   meta: [ {
     label: {
       en: "Context",
@@ -292,8 +287,8 @@ window.PROJECTS = [ {
       es: "Método"
     },
     value: {
-      en: "Positioning, SWOT, journey mapping, Scrum",
-      es: "Posicionamiento, DAFO, journey mapping, Scrum"
+      en: "Positioning, persona, journey mapping, Scrum",
+      es: "Posicionamiento, persona, journey mapping, Scrum"
     }
   } ],
   links: [ {
@@ -304,8 +299,8 @@ window.PROJECTS = [ {
     url: "https://drive.google.com/file/d/1-Kwr3uFyvknkRUWqKx8-8s95nbLQ63Rq/view?usp=sharing"
   } ],
   disclaimer: {
-    en: "Academic project about a real brand. Lufe did not commission it and is not involved. Market figures come from public sources, and the impact numbers are my own estimates.",
-    es: "Proyecto académico sobre una marca real. Lufe no lo encargó ni participa. Las cifras de mercado vienen de fuentes públicas y las de impacto son estimaciones mías."
+    en: "Academic project about a real brand. Lufe did not commission it and is not involved. Brand photos are Lufe's own, as collected in my dossier. Market figures come from public sources; the impact numbers are my estimates.",
+    es: "Proyecto académico sobre una marca real. Lufe no lo encargó ni participa. Las fotos son de la propia marca, tal como las recogí en mi dossier. Las cifras de mercado vienen de fuentes públicas; las de impacto son estimaciones mías."
   },
   summary: [ {
     label: {
@@ -345,192 +340,493 @@ window.PROJECTS = [ {
     }
   } ],
   blocks: [ {
-    type: "split",
-    title: {
-      en: "A strength and a gap in the same sentence",
-      es: "Una fortaleza y un hueco en la misma frase"
-    },
-    body: {
-      en: [ "Lufe was already doing a lot right: revenue up sevenfold between 2019 and 2024, 377K Instagram followers, and a position nobody else holds, low price with certified sustainability.", "People trust the brand enough to buy furniture they have never seen in person. That trust is the strength. The missing touch is the gap." ],
-      es: [ "Lufe ya hacía muchas cosas bien: facturación multiplicada por siete entre 2019 y 2024, 377K seguidores en Instagram y una posición que nadie más ocupa, precio bajo con sostenibilidad certificada.", "La gente confía en la marca lo bastante como para comprar muebles que no ha visto en persona. Esa confianza es la fortaleza. El tacto que falta es el hueco." ]
-    },
-    image: {
-      src: "assets/projects/lufe/02-positioning-map.webp",
-      alt: {
-        en: "Positioning map placing Lufe at low price and high sustainability, apart from IKEA, Kave Home and others",
-        es: "Mapa de posicionamiento que sitúa a Lufe en precio bajo y sostenibilidad alta, lejos de IKEA, Kave Home y otros"
-      },
-      caption: {
-        en: "Price against sustainability. Lufe sits alone in its quadrant.",
-        es: "Precio frente a sostenibilidad. Lufe está sola en su cuadrante."
-      }
-    }
-  }, {
     type: "gallery",
-    columns: 2,
+    columns: 3,
+    crop: true,
     images: [ {
-      src: "assets/projects/lufe/03-persona.webp",
+      src: "assets/projects/lufe/photos/storefront.webp",
       alt: {
-        en: "User persona page: Sofía, 27, a UX designer furnishing her first flat",
-        es: "Página de user persona: Sofía, 27 años, diseñadora UX que amuebla su primer piso"
-      },
-      caption: {
-        en: "Who buys: the persona.",
-        es: "Quién compra: la persona."
+        en: "Lufe shop sign on a street: 100% natural furniture with plenty of style",
+        es: "Cartel de Lufe en la calle: muebles 100% naturales y con mucho estilo"
       }
     }, {
-      src: "assets/projects/lufe/04-customer-journey.webp",
+      src: "assets/projects/lufe/photos/sanding.webp",
       alt: {
-        en: "Customer journey from discovery to loyalty with touchpoints and pain points",
-        es: "Customer journey desde el descubrimiento hasta la fidelización con puntos de contacto y de dolor"
-      },
-      caption: {
-        en: "Where it hurts: the journey, stage by stage.",
-        es: "Dónde duele: el journey, etapa a etapa."
+        en: "A pine board being sanded in the workshop",
+        es: "Un tablero de pino lijándose en el taller"
+      }
+    }, {
+      src: "assets/projects/lufe/photos/drawers.webp",
+      alt: {
+        en: "A solid pine chest of drawers in a bedroom",
+        es: "Una cómoda de pino macizo en un dormitorio"
       }
     } ]
   }, {
     type: "text",
     title: {
-      en: "Why I ruled out two full proposals",
-      es: "Por qué descarté dos propuestas enteras"
+      en: "The brand",
+      es: "La marca"
+    },
+    body: {
+      en: [ "Lufe makes solid pine furniture in the Basque Country and sells it direct, with no shops and no middlemen. It grew on honest pricing, certified wood and a lot of organic reach on Instagram.", "The brief asked for an omnichannel experience aimed at millennials, new technology, and a brand that feels disruptive without losing its sustainability." ],
+      es: [ "Lufe fabrica muebles de pino macizo en el País Vasco y los vende directamente, sin tiendas ni intermediarios. Creció con precios honestos, madera certificada y mucho alcance orgánico en Instagram.", "El encargo pedía una experiencia omnicanal para millennials, nuevas tecnologías y una marca que se sintiera disruptiva sin perder su sostenibilidad." ]
+    }
+  }, {
+    type: "stats",
+    items: [ {
+      value: "×7",
+      label: {
+        en: "Revenue growth, 2019 to 2024",
+        es: "Crecimiento de facturación, 2019 a 2024"
+      }
+    }, {
+      value: "377K",
+      label: {
+        en: "Instagram followers",
+        es: "Seguidores en Instagram"
+      }
+    }, {
+      value: "48",
+      label: {
+        en: "People in the company",
+        es: "Personas en la empresa"
+      }
+    }, {
+      value: "32%",
+      label: {
+        en: "Share of Spanish furniture sales already online",
+        es: "Parte de las ventas de mueble en España que ya es online"
+      }
+    } ],
+    footnote: {
+      en: "Public figures gathered for the dossier.",
+      es: "Cifras públicas recogidas para el dossier."
+    }
+  }, {
+    type: "map",
+    title: {
+      en: "A position nobody else holds",
+      es: "Una posición que nadie más ocupa"
+    },
+    body: {
+      en: [ "Price against sustainability. Lufe is the only brand combining certified solid wood, local production and factory prices. Hover a brand to see why it sits where it does." ],
+      es: [ "Precio frente a sostenibilidad. Lufe es la única marca que junta madera maciza certificada, fabricación local y precio de fábrica. Pasa por encima de una marca para ver por qué está ahí." ]
+    },
+    axes: {
+      left: {
+        en: "Lower price",
+        es: "Precio bajo"
+      },
+      right: {
+        en: "Higher price",
+        es: "Precio alto"
+      },
+      top: {
+        en: "More sustainable",
+        es: "Más sostenible"
+      },
+      bottom: {
+        en: "Less sustainable",
+        es: "Menos sostenible"
+      }
+    },
+    points: [ {
+      name: "Lufe",
+      x: 25,
+      y: 22,
+      highlight: true,
+      note: {
+        en: "Solid wood · direct to consumer · made locally",
+        es: "Madera maciza · venta directa · fabricación local"
+      }
+    }, {
+      name: "Kave Home",
+      x: 70,
+      y: 27,
+      note: {
+        en: "Premium · design-led",
+        es: "Premium · diseño"
+      }
+    }, {
+      name: "La Redoute",
+      x: 62,
+      y: 61,
+      note: {
+        en: "Fashion · catalogue",
+        es: "Moda · catálogo"
+      }
+    }, {
+      name: "IKEA",
+      x: 14,
+      y: 70,
+      note: {
+        en: "Laminate · global",
+        es: "Laminado · global"
+      }
+    }, {
+      name: "Sklum",
+      x: 36,
+      y: 79,
+      note: {
+        en: "Trend-led · online",
+        es: "Tendencia · online"
+      }
+    }, {
+      name: "El Corte Inglés",
+      x: 89,
+      y: 75,
+      note: {
+        en: "Generalist · expensive",
+        es: "Generalista · caro"
+      }
+    } ]
+  }, {
+    type: "persona",
+    title: {
+      en: "Who buys",
+      es: "Quién compra"
+    },
+    name: "Sofía Martínez, 27",
+    role: {
+      en: "UX designer · Barcelona · €1,600 a month",
+      es: "Diseñadora UX · Barcelona · 1.600 € al mes"
+    },
+    image: {
+      src: "assets/projects/lufe/photos/desk.webp",
+      alt: {
+        en: "A pine desk with a sketchbook and brushes",
+        es: "Un escritorio de pino con un cuaderno y pinceles"
+      }
+    },
+    sections: [ {
+      label: {
+        en: "Who she is",
+        es: "Quién es"
+      },
+      text: {
+        en: "Part of the first generation furnishing a home without parents' hand-me-downs. No car, so buying in a physical store means extra logistics and cost.",
+        es: "Parte de la primera generación que amuebla su casa sin muebles heredados. No tiene coche, así que comprar en tienda física implica logística y coste extra."
+      }
+    }, {
+      label: {
+        en: "Digital habits",
+        es: "Hábitos digitales"
+      },
+      text: {
+        en: "Instagram and Pinterest for ideas, TikTok to discover brands, YouTube for assembly tutorials. 90% of her shopping is online.",
+        es: "Instagram y Pinterest para inspirarse, TikTok para descubrir marcas, YouTube para tutoriales de montaje. El 90% de sus compras son online."
+      }
+    }, {
+      label: {
+        en: "What she needs",
+        es: "Qué necesita"
+      },
+      text: {
+        en: "A home with a personal touch and an environmental commitment, without going over budget, and delivery she can rely on.",
+        es: "Un hogar con toque personal y compromiso medioambiental, sin pasarse de presupuesto, y una entrega en la que pueda confiar."
+      }
+    }, {
+      label: {
+        en: "How she buys",
+        es: "Cómo compra"
+      },
+      text: {
+        en: "Two to four weeks of research and reviews before paying. Certified sustainability is a deciding factor, not just an ideal.",
+        es: "De dos a cuatro semanas investigando y leyendo opiniones antes de pagar. La sostenibilidad certificada es un factor decisivo, no solo un ideal."
+      }
+    } ]
+  }, {
+    type: "list",
+    title: {
+      en: "Where the experience breaks",
+      es: "Dónde se rompe la experiencia"
+    },
+    items: [ {
+      en: "The customer never touches the product before buying. This is the gap that matters most.",
+      es: "El cliente nunca toca el producto antes de comprar. Es el hueco que más importa."
+    }, {
+      en: "No 3D configurator or AR to see the piece at home.",
+      es: "Ni configurador 3D ni AR para ver el mueble en casa."
+    }, {
+      en: "No formal loyalty programme.",
+      es: "Ningún programa de fidelización formal."
+    }, {
+      en: "TikTok, where her generation discovers brands, is barely used.",
+      es: "TikTok, donde su generación descubre marcas, apenas se usa."
+    }, {
+      en: "Outsourced delivery and assembly instructions that could be clearer.",
+      es: "Logística subcontratada e instrucciones de montaje mejorables."
+    } ]
+  }, {
+    type: "text",
+    title: {
+      en: "Three directions, one recommendation",
+      es: "Tres caminos, una recomendación"
     },
     body: {
       en: [ "I designed three directions and presented all three. Explaining why something should not be built is part of the job.", "Directo was too cautious to change anything that mattered. Nodo covered every objective, but it asked a 48-person company for an investment and an operation it could not yet carry." ],
       es: [ "Diseñé tres caminos y presenté los tres. Explicar por qué algo no debería hacerse es parte del trabajo.", "Directo era demasiado prudente para cambiar nada importante. Nodo cubría todos los objetivos, pero pedía a una empresa de 48 personas una inversión y una operación que aún no podía sostener." ]
     }
   }, {
-    type: "table",
-    columns: [ {
-      en: "Criterion",
-      es: "Criterio"
-    }, "Directo", "Studio", "Nodo" ],
-    highlight: 2,
-    rows: [ [ {
-      en: "Investment",
-      es: "Inversión"
-    }, "12–18K €", "35–55K €", "90–140K €" ], [ {
-      en: "Duration",
-      es: "Duración"
+    type: "options",
+    objectives: [ {
+      en: "Omnichannel for millennials",
+      es: "Omnicanal millennial"
     }, {
-      en: "3–4 months",
-      es: "3–4 meses"
+      en: "A unique customer experience",
+      es: "Experiencia de cliente única"
     }, {
-      en: "5 months",
-      es: "5 meses"
+      en: "Integrated digital strategy",
+      es: "Estrategia digital integrada"
     }, {
-      en: "8–10 months",
-      es: "8–10 meses"
-    } ], [ {
-      en: "Objectives covered",
-      es: "Objetivos cubiertos"
-    }, "3 / 6", "5 / 6", "6 / 6" ], [ {
-      en: "Operational risk",
-      es: "Riesgo operativo"
+      en: "Consistent touchpoints",
+      es: "Coherencia entre puntos de contacto"
     }, {
-      en: "Low",
-      es: "Bajo"
+      en: "New technology",
+      es: "Nuevas tecnologías"
     }, {
-      en: "Medium",
-      es: "Medio"
+      en: "Disruptive, sustainable brand",
+      es: "Marca disruptiva y sostenible"
+    } ],
+    items: [ {
+      name: "Directo",
+      label: {
+        en: "Conservative",
+        es: "Conservadora"
+      },
+      text: {
+        en: "Optimise what exists: live order tracking, assembly instructions with QR videos, segmented email and better packaging.",
+        es: "Optimizar lo que existe: seguimiento del pedido en tiempo real, instrucciones con vídeos por QR, email segmentado y mejor packaging."
+      },
+      specs: [ [ {
+        en: "Investment",
+        es: "Inversión"
+      }, "€12–18K" ], [ {
+        en: "Duration",
+        es: "Duración"
+      }, {
+        en: "3–4 months",
+        es: "3–4 meses"
+      } ], [ {
+        en: "Risk",
+        es: "Riesgo"
+      }, {
+        en: "Low",
+        es: "Bajo"
+      } ] ],
+      levels: [ 2, 3, 1, 3, 1, 2 ],
+      verdict: {
+        en: "Doesn't solve the touch gap.",
+        es: "No resuelve el hueco táctil."
+      }
     }, {
-      en: "High",
-      es: "Alto"
-    } ], [ {
-      en: "Solves the touch gap",
-      es: "Resuelve el hueco táctil"
+      name: "Studio",
+      label: {
+        en: "Continuity",
+        es: "Continuista"
+      },
+      chosen: true,
+      text: {
+        en: "The website becomes a showroom with a 3D configurator, the first loyalty club, and a TikTok plan with a content system behind it.",
+        es: "La web se convierte en showroom con un configurador 3D, el primer club de fidelización y un plan de TikTok con sistema de contenido detrás."
+      },
+      specs: [ [ {
+        en: "Investment",
+        es: "Inversión"
+      }, "€35–55K" ], [ {
+        en: "Duration",
+        es: "Duración"
+      }, {
+        en: "5 months",
+        es: "5 meses"
+      } ], [ {
+        en: "Risk",
+        es: "Riesgo"
+      }, {
+        en: "Medium",
+        es: "Medio"
+      } ] ],
+      levels: [ 3, 3, 3, 3, 3, 2 ],
+      verdict: {
+        en: "Most objectives at the lowest risk. Chosen.",
+        es: "Más objetivos con el menor riesgo. La elegida."
+      }
     }, {
-      en: "No",
-      es: "No"
-    }, {
-      en: "Yes",
-      es: "Sí"
-    }, {
-      en: "Yes",
-      es: "Sí"
-    } ], [ {
-      en: "Viable for 48 people",
-      es: "Viable con 48 personas"
-    }, {
-      en: "Yes",
-      es: "Sí"
-    }, {
-      en: "Yes",
-      es: "Sí"
-    }, {
-      en: "No",
-      es: "No"
-    } ] ],
+      name: "Nodo",
+      label: {
+        en: "Innovative",
+        es: "Innovadora"
+      },
+      text: {
+        en: "Rotating showrooms in three cities, a native AR app, community co-design and an ambassador programme.",
+        es: "Showrooms rotativos en tres ciudades, app nativa con AR, codiseño con la comunidad y programa de embajadores."
+      },
+      specs: [ [ {
+        en: "Investment",
+        es: "Inversión"
+      }, "€90–140K" ], [ {
+        en: "Duration",
+        es: "Duración"
+      }, {
+        en: "8–10 months",
+        es: "8–10 meses"
+      } ], [ {
+        en: "Risk",
+        es: "Riesgo"
+      }, {
+        en: "High",
+        es: "Alto"
+      } ] ],
+      levels: [ 3, 3, 3, 3, 3, 3 ],
+      verdict: {
+        en: "Right in 3–5 years. Too early for a 48-person company.",
+        es: "Correcta a 3–5 años. Demasiado pronto para una empresa de 48 personas."
+      }
+    } ],
     footnote: {
-      en: "The chosen proposal is the one that solves the most objectives at the lowest risk for the company.",
-      es: "La propuesta elegida es la que más objetivos resuelve con el menor riesgo para la empresa."
+      en: "Bars show how well each proposal covers each of the client's six objectives: low, medium or high.",
+      es: "Las barras muestran cuánto cubre cada propuesta cada uno de los seis objetivos del cliente: bajo, medio o alto."
     }
   }, {
-    type: "gallery",
-    columns: 3,
-    images: [ {
-      src: "assets/projects/lufe/06-proposal-directo.webp",
-      alt: {
-        en: "Dossier page for the Directo proposal",
-        es: "Página del dossier de la propuesta Directo"
+    type: "cards",
+    title: {
+      en: "Lufe Studio in three pillars",
+      es: "Lufe Studio en tres pilares"
+    },
+    items: [ {
+      image: {
+        src: "assets/projects/lufe/photos/shelf.webp",
+        alt: {
+          en: "A pine shelf with a bowl of apples",
+          es: "Una estantería de pino con un cuenco de manzanas"
+        }
       },
-      caption: {
-        en: "Directo: optimise what exists.",
-        es: "Directo: optimizar lo que ya existe."
+      title: {
+        en: "3D configurator",
+        es: "Configurador 3D"
+      },
+      text: {
+        en: "Choose size and finish on the product page and see the piece rendered. AR on mobile comes in a second phase. It answers the touch gap directly.",
+        es: "Eliges medidas y acabado en la ficha del producto y ves el mueble renderizado. La AR en móvil llega en una segunda fase. Responde directamente al hueco táctil."
       }
     }, {
-      src: "assets/projects/lufe/07-proposal-studio.webp",
-      alt: {
-        en: "Dossier page for the Studio proposal",
-        es: "Página del dossier de la propuesta Studio"
+      image: {
+        src: "assets/projects/lufe/photos/wood.webp",
+        alt: {
+          en: "Stacked pine offcuts",
+          es: "Recortes de pino apilados"
+        }
       },
-      caption: {
-        en: "Studio: the website becomes the showroom.",
-        es: "Studio: la web se convierte en showroom."
+      title: "Club LUFE",
+      text: {
+        en: "Three tiers named after wood: Madera, Pino and Roble. Points for purchases, reviews and content, plus early access to new drops.",
+        es: "Tres niveles con nombre de madera: Madera, Pino y Roble. Puntos por compras, reseñas y contenido, y acceso anticipado a los nuevos lanzamientos."
       }
     }, {
-      src: "assets/projects/lufe/08-proposal-nodo.webp",
-      alt: {
-        en: "Dossier page for the Nodo proposal",
-        es: "Página del dossier de la propuesta Nodo"
+      image: {
+        src: "assets/projects/lufe/photos/rack.webp",
+        alt: {
+          en: "A pine clothes rail with knitwear",
+          es: "Un perchero de pino con jerséis"
+        }
       },
-      caption: {
-        en: "Nodo: showrooms, an app and co-design.",
-        es: "Nodo: showrooms, app y codiseño."
+      title: "TikTok System",
+      text: {
+        en: "An editorial calendar, a behind-the-scenes series from the factory called \"Serrín y Diseño\", micro-influencers and before-and-after posts from real club members.",
+        es: "Calendario editorial, una serie de backstage en fábrica llamada \"Serrín y Diseño\", microinfluencers y antes y después con miembros reales del club."
       }
     } ]
   }, {
-    type: "split",
+    type: "timeline",
     title: {
       en: "Planning it like a product team would",
       es: "Planificarlo como lo haría un equipo de producto"
     },
     body: {
-      en: [ "Ten two-week sprints over five months, with something testable on real users from the first month. The three pillars are independent, so a delay in the configurator does not stop the club or the TikTok plan.", "The team is six roles: product manager, UX/UI designer, front-end developer, 3D artist, content manager and digital marketing." ],
-      es: [ "Diez sprints de dos semanas a lo largo de cinco meses, con algo que probar con usuarios reales desde el primer mes. Los tres pilares son independientes, así que un retraso en el configurador no frena el club ni el plan de TikTok.", "El equipo son seis roles: product manager, diseñador UX/UI, desarrollador front-end, artista 3D, content manager y marketing digital." ]
+      en: [ "Ten two-week sprints over five months, with something testable on real users from the first month. The pillars are independent, so a delay in the configurator doesn't stop the club or TikTok.", "Six roles: product manager acting as Scrum master, UX/UI designer, front-end developer, 3D artist, content manager and digital marketing." ],
+      es: [ "Diez sprints de dos semanas en cinco meses, con algo que probar con usuarios reales desde el primer mes. Los pilares son independientes, así que un retraso en el configurador no frena el club ni TikTok.", "Seis roles: product manager que hace de Scrum master, diseñador UX/UI, desarrollador front-end, artista 3D, content manager y marketing digital." ]
     },
-    image: {
-      src: "assets/projects/lufe/10-scrum.webp",
-      alt: {
-        en: "Scrum cycle diagram with the reasons for choosing the method",
-        es: "Diagrama del ciclo Scrum con las razones para elegir el método"
+    units: 10,
+    unitLabel: {
+      en: "S",
+      es: "S"
+    },
+    groups: [ {
+      name: {
+        en: "Analysis",
+        es: "Análisis"
       },
-      caption: {
-        en: "Why Scrum, and how the sprint cycle runs.",
-        es: "Por qué Scrum y cómo corre el ciclo de sprint."
-      }
-    }
-  }, {
-    type: "image",
-    src: "assets/projects/lufe/11-gantt.webp",
-    alt: {
-      en: "Gantt chart of the five-month plan across ten sprints",
-      es: "Diagrama de Gantt del plan de cinco meses en diez sprints"
-    },
-    caption: {
-      en: "The five-month plan. Analysis, production, rollout, then tracking against KPIs.",
-      es: "El plan de cinco meses. Análisis, producción, implementación y seguimiento con KPIs."
-    }
+      rows: [ {
+        label: {
+          en: "Kick-off and team briefing",
+          es: "Kick-off y briefing del equipo"
+        },
+        from: 1,
+        to: 2
+      }, {
+        label: {
+          en: "Design sprint (5 days)",
+          es: "Design sprint (5 días)"
+        },
+        from: 1,
+        to: 1
+      }, {
+        label: {
+          en: "Scrum set-up and backlog",
+          es: "Montaje de Scrum y backlog"
+        },
+        from: 1,
+        to: 2
+      } ]
+    }, {
+      name: {
+        en: "Production",
+        es: "Producción"
+      },
+      rows: [ {
+        label: {
+          en: "3D configurator",
+          es: "Configurador 3D"
+        },
+        from: 3,
+        to: 6
+      }, {
+        label: {
+          en: "Club LUFE platform",
+          es: "Plataforma Club LUFE"
+        },
+        from: 3,
+        to: 5
+      }, {
+        label: {
+          en: "TikTok System",
+          es: "TikTok System"
+        },
+        from: 4,
+        to: 6
+      } ]
+    }, {
+      name: {
+        en: "Launch",
+        es: "Lanzamiento"
+      },
+      rows: [ {
+        label: {
+          en: "Rollout and beta with club members",
+          es: "Implementación y beta con el club"
+        },
+        from: 7,
+        to: 7
+      }, {
+        label: {
+          en: "Tracking, KPIs and iteration",
+          es: "Seguimiento, KPIs e iteración"
+        },
+        from: 9,
+        to: 10
+      } ]
+    } ]
   }, {
     type: "stats",
     title: {
@@ -671,6 +967,65 @@ window.PROJECTS = [ {
       es: [ "SAL habla de chefs que dejaron atrás la perfección técnica por algo más honesto y menos cómodo. Quise que la revista se comportara igual. Cada espacio en blanco y cada corte de página tenía que ganarse su sitio." ]
     }
   }, {
+    type: "flipbook",
+    title: {
+      en: "Turn the pages",
+      es: "Pasa las páginas"
+    },
+    pages: [ {
+      src: "assets/projects/sal/book/00-cover.webp",
+      alt: {
+        en: "Cover of SAL issue 01, Pioneras",
+        es: "Portada de SAL número 01, Pioneras"
+      }
+    }, {
+      src: "assets/projects/sal/book/01-p02.webp",
+      alt: {
+        en: "Page 2: editor's quote on a red page",
+        es: "Página 2: cita editorial sobre página roja"
+      }
+    }, {
+      src: "assets/projects/sal/book/02-p03.webp",
+      alt: {
+        en: "Page 3: contents",
+        es: "Página 3: sumario"
+      }
+    }, {
+      src: "assets/projects/sal/book/03-p04.webp",
+      alt: {
+        en: "Page 4: full-bleed photograph of a chef plating",
+        es: "Página 4: fotografía a sangre de una chef emplatando"
+      }
+    }, {
+      src: "assets/projects/sal/book/04-p05.webp",
+      alt: {
+        en: "Page 5: opening of the feature The Core, Pioneras 2025",
+        es: "Página 5: apertura del reportaje The Core, Pioneras 2025"
+      }
+    }, {
+      src: "assets/projects/sal/book/05-p06.webp",
+      alt: {
+        en: "Page 6: the feature continues on red",
+        es: "Página 6: el reportaje sigue sobre rojo"
+      }
+    }, {
+      src: "assets/projects/sal/book/06-p07.webp",
+      alt: {
+        en: "Page 7: closing page with a narrow column",
+        es: "Página 7: cierre con columna estrecha"
+      }
+    }, {
+      src: "assets/projects/sal/book/07-back.webp",
+      alt: {
+        en: "Back cover with a quote",
+        es: "Contraportada con una cita"
+      }
+    } ],
+    caption: {
+      en: "Issue 01, from cover to back. Click or use the arrows to turn the page. Photography in the layouts is stock from Unsplash.",
+      es: "Número 01, de portada a contraportada. Haz clic o usa las flechas para pasar página. Las fotografías de las maquetas son de archivo, de Unsplash."
+    }
+  }, {
     type: "split",
     title: {
       en: "A system you only notice when it's gone",
@@ -712,40 +1067,6 @@ window.PROJECTS = [ {
       en: [ "The feature opens with a full-bleed photograph. The next page slows down with a pull quote. The close narrows the column so you read more slowly. That sequence was the plan from the first sketch." ],
       es: [ "El reportaje abre con una fotografía a sangre. La página siguiente frena con una cita destacada. El cierre estrecha la columna para que leas más despacio. Esa secuencia era el plan desde el primer boceto." ]
     }
-  }, {
-    type: "gallery",
-    columns: 1,
-    images: [ {
-      src: "assets/projects/sal/04-article-opening.webp",
-      alt: {
-        en: "Opening spread of the feature The Core, Pioneras 2025",
-        es: "Doble página de apertura del reportaje The Core, Pioneras 2025"
-      },
-      caption: {
-        en: "The opening: photograph first, then the text.",
-        es: "La apertura: primero la fotografía, luego el texto."
-      }
-    }, {
-      src: "assets/projects/sal/05-article-continued.webp",
-      alt: {
-        en: "Second spread of the feature on a red background",
-        es: "Segunda doble página del reportaje sobre fondo rojo"
-      },
-      caption: {
-        en: "The second spread turns red and the column narrows.",
-        es: "La segunda doble página se vuelve roja y la columna se estrecha."
-      }
-    }, {
-      src: "assets/projects/sal/03-summary.webp",
-      alt: {
-        en: "Contents page of SAL issue 01",
-        es: "Sumario de SAL número 01"
-      },
-      caption: {
-        en: "Contents page. Photography in the layouts is stock from Unsplash.",
-        es: "Sumario. Las fotografías de las maquetas son de archivo, de Unsplash."
-      }
-    } ]
   } ]
 }, {
   id: "artecodigo",
