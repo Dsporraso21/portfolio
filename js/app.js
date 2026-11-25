@@ -51,10 +51,6 @@
       en: "Index",
       es: "Índice"
     },
-    next: {
-      en: "Next project",
-      es: "Siguiente proyecto"
-    },
     contact: {
       en: "Contact",
       es: "Contacto"
@@ -452,9 +448,6 @@
     return '<' + tag + ' class="b b-' + b.type + (b.crop ? ' is-crop' : '') + '"' + style + '>' + fn(b) + '</' + tag + '>';
   }
   function caseView(p) {
-    var idx = LIVE.indexOf(p);
-    var next = LIVE.length > 1 ? LIVE[(idx + 1 + LIVE.length) % LIVE.length] : null;
-    if (idx < 0) next = LIVE[0] || null;
     var links = (p.links || []).filter((function(l) {
       return extLink(l.url);
     }));
@@ -476,9 +469,6 @@
     if (t(p.disclaimer)) top += '<p class="disclaimer">' + inl(p.disclaimer) + '</p>';
     if (top) out += '<div>' + top + '</div>';
     out += (p.blocks || []).map(blockHTML).join("") + '</div></article>';
-    if (next && next !== p) {
-      out += '<a class="next side" href="#' + esc(next.id) + '"><span class="next__txt"><span>' + esc(ui("next")) + '</span><b>' + plain(next.title) + '</b></span>' + tile(next) + '</a>';
-    }
     return out + '</main>' + footer();
   }
   var HOME_KEYS = {
